@@ -8,7 +8,7 @@ const PORT = 3001;
 const dbFile = './db.json';
 
 const read = () => {
-    const notes = fs.readFileSync(notesFile, 'utf-8');
+    const notes = fs.readFileSync(dbFile, 'utf-8');
     return JSON.parse(notes);
 }
 
