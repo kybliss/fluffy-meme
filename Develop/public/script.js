@@ -1,13 +1,14 @@
-const express = require('express');
-const fs = require('fs');
+function deleteNote(id) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('DELETE', `/db/${id}`);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send();
 
-const app = express();
-const PORT = 3001;
-
-const middleware = (req, res) => {
-
+    xhr.onload = function() {
+        if (xhr.status === 200){
+            location.reload();
+        } else {
+            alert('Error occurred while deleting.')
+        }
+    };
 }
-
-const jsonData = JSON.stringify(data);
-
-fs.writeFileSync(db.json, jsonData);
